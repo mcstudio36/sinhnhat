@@ -725,14 +725,16 @@ btnMusic.addEventListener('click', (e) => {
 function startMain(){
   const myGen = ++gen;
 
-  revealBackground(myGen);
-
+  // Nền đen thuần khi đếm — ảnh chưa hiện
   heartsOn = true;
   for (let i = 0; i < 8; i++){
     setTimeout(() => { if (myGen === gen) spawnHeart(); }, i * 200);
   }
 
   startCountdown(myGen, () => {
+    // Sau khi nổ xong → mới hiện ảnh nền
+    if (myGen !== gen) return;
+    revealBackground(myGen);
     buildNameDots();
   });
 }
