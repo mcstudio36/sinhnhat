@@ -19,7 +19,6 @@
     user-select:none;-webkit-user-select:none;
   }
 
-  /* ===== ẢNH NỀN ===== */
   #bgPhoto{
     position:fixed;inset:0;z-index:0;
     background-size:cover;
@@ -69,7 +68,6 @@
   }
   #nameCv.hidden, #heartsCv.hidden{ opacity:0; }
 
-  /* ===== COUNTDOWN ===== */
   #countdown{
     position:fixed;inset:0;z-index:15;
     display:flex;align-items:center;justify-content:center;
@@ -132,7 +130,6 @@
   #flash.go{ animation:flashAnim 0.8s ease-out forwards; }
   @keyframes flashAnim{ 0%{opacity:1;} 100%{opacity:0;} }
 
-  /* ===== NÚT ===== */
   #topBar{
     position:fixed;
     top:max(14px, env(safe-area-inset-top));
@@ -163,7 +160,6 @@
     50%    { transform:scale(1.08); box-shadow:0 0 30px rgba(255,180,100,0.95); }
   }
 
-  /* ===== LỜI CHÚC ===== */
   #wishes{
     position:fixed;
     top:48%;left:50%;
@@ -203,44 +199,43 @@
   /* ===== TRÁI TIM 3 ẢNH ===== */
   #heartBox{
     position:fixed;
-    top:50%;left:50%;
+    top:45%;left:50%;
     transform:translate(-50%,-50%);
     z-index:12;
-    width:min(78vw, 340px);
-    height:min(78vw, 340px);
+    width:min(80vw, 360px);
+    height:min(80vw, 360px);
     opacity:0;
     pointer-events:none;
     transition:opacity 1.5s ease;
   }
   #heartBox.show{ opacity:1; }
 
-  /* Khung trái tim chứa 3 ảnh */
-  #heartBox .heart-shape{
-    position:absolute;inset:0;
-    /* Dùng mask để chỉ hiện vùng trái tim */
-    -webkit-mask-image:radial-gradient(circle at 30% 30%, #000 32%, transparent 33%),
-                        radial-gradient(circle at 70% 30%, #000 32%, transparent 33%),
-                        linear-gradient(45deg, #000 0%, #000 100%);
-    -webkit-mask-composite: source-over;
-    mask-composite: add;
-    display:none; /* fallback tắt */
-  }
-
-  #heartBox .photo{
+ #heartBox .photo{
     position:absolute;
-    width:60%;
-    height:60%;
-    border-radius:50%;
+    width:80%;
+    height:80%;
     object-fit:cover;
-    border:3px solid rgba(255,255,255,0.95);
-    box-shadow:
-      0 0 20px rgba(255,150,200,0.7),
-      0 0 50px rgba(255,100,180,0.4),
-      0 8px 30px rgba(0,0,0,0.6);
     opacity:0;
     transform:scale(0.3);
     transition:all 1.1s cubic-bezier(0.2,1.5,0.4,1);
     will-change:transform,opacity;
+    background:#222;
+
+    /* ✂️ Cắt ảnh thành hình trái tim */
+    -webkit-mask-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,88 C50,88 4,60 4,32 C4,18 16,8 28,8 C38,8 46,14 50,22 C54,14 62,8 72,8 C84,8 96,18 96,32 C96,60 50,88 50,88 Z' fill='%23000'/%3E%3C/svg%3E");
+    mask-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,88 C50,88 4,60 4,32 C4,18 16,8 28,8 C38,8 46,14 50,22 C54,14 62,8 72,8 C84,8 96,18 96,32 C96,60 50,88 50,88 Z' fill='%23000'/%3E%3C/svg%3E");
+    -webkit-mask-size:100% 100%;
+    mask-size:100% 100%;
+    -webkit-mask-repeat:no-repeat;
+    mask-repeat:no-repeat;
+    -webkit-mask-position:center;
+    mask-position:center;
+
+    /* ✨ Glow hồng bao quanh trái tim (thay cho box-shadow) */
+    filter:
+      drop-shadow(0 0 8px rgba(255,150,200,0.9))
+      drop-shadow(0 0 20px rgba(255,100,180,0.6))
+      drop-shadow(0 0 40px rgba(255,80,150,0.35));
   }
 
   #heartBox.show .photo{
@@ -248,17 +243,20 @@
     transform:scale(1);
   }
 
-  /* Vị trí 3 ảnh: 2 trên + 1 dưới tạo silhouette trái tim */
+  /* 2 trên + 1 dưới tạo silhouette trái tim */
   #heartBox .p1{
-    top:0;left:0;
+    top:0;
+    left:25%;
     transition-delay:0.1s;
   }
   #heartBox .p2{
-    top:0;right:0;
+    top:0;
+    right:25%;
     transition-delay:0.3s;
   }
   #heartBox .p3{
-    bottom:0;left:50%;
+    bottom:2%;
+    left:50%;
     transform:translateX(-50%) scale(0.3);
     transition-delay:0.5s;
   }
@@ -266,13 +264,12 @@
     transform:translateX(-50%) scale(1);
   }
 
-  /* Nhịp đập trái tim sau khi vào vị trí */
+  /* Nhịp đập trái tim */
   #heartBox.beat .photo{
     animation:heartBeat 1.4s ease-in-out infinite;
   }
   #heartBox.beat .p1{ animation-delay:0s; }
   #heartBox.beat .p2{ animation-delay:0.1s; }
-  #heartBox.beat .p3{ animation-delay:0.2s; }
   @keyframes heartBeat{
     0%,100%{ transform:scale(1); }
     50%    { transform:scale(1.06); }
@@ -285,10 +282,10 @@
     50%    { transform:translateX(-50%) scale(1.06); }
   }
 
-  /* Chữ "Anh yêu em" dưới trái tim */
+  /* Chữ "Anh yêu em" */
   #loveText{
     position:fixed;
-    top:calc(50% + min(44vw, 200px));
+    top:calc(45% + min(42vw, 190px));
     left:50%;
     transform:translateX(-50%) translateY(20px);
     z-index:13;
@@ -317,11 +314,11 @@
       width:min(78%, 720px);
     }
     #heartBox{
-      width:min(50vh, 300px);
-      height:min(50vh, 300px);
+      width:min(52vh, 320px);
+      height:min(52vh, 320px);
     }
     #loveText{
-      top:calc(50% + min(28vh, 160px));
+      top:calc(45% + min(30vh, 170px));
     }
   }
 </style>
@@ -356,23 +353,26 @@
 
 <script>
 /* ============================================================
-   CẤU HÌNH — SỬA Ở ĐÂY
+   CẤU HÌNH
 ============================================================ */
 const CONFIG = {
   name: 'Em iu',
-  photo: 'IMG_5537.jpeg',       // ảnh nền
+  photo: 'IMG_5537.jpeg',
 
-  // 💕 3 ảnh ghép thành trái tim — đặt tên file hoặc link
+  // 💕 3 ảnh ghép thành trái tim
+  // ⚠️ Tên file phải KHỚP chính xác với file trên GitHub
   heartPhotos: [
-    'sn1.jpg',                  // ảnh trên trái
-    'sn2.JPG',                  // ảnh trên phải
-    'sn3.jpg'                   // ảnh dưới giữa
+    'sn1.jpg',
+    'sn2.JPG',       // ← Đổi từ sn2.JPG thành .jpg cho chắc
+    'sn3.jpg'
   ],
 
-  // Dòng chữ yêu dưới trái tim
   loveText: 'Anh yêu em ❤️',
 
-  music: 'chua mot lan a thay hoi han.mp3',
+  // ⚠️ Tên nhạc có dấu cách → phải URL encode
+  // Tốt nhất đổi tên file trên GitHub thành "nhac.mp3"
+  music: 'chua%20mot%20lan%20a%20thay%20hoi%20han.mp3',
+
   countFrom: 3,
 
   wishes: [
@@ -586,7 +586,7 @@ function boom(myGen, onFinish){
 }
 
 /* ============================================================
-   CHỮ HẠT SÁNG — SẮC NÉT
+   CHỮ HẠT SÁNG
 ============================================================ */
 function buildNameDots(){
   nameDots = [];
@@ -638,8 +638,6 @@ function buildNameDots(){
   o.fillText(name, cx, y3);
 
   const data = o.getImageData(0, 0, off.width, off.height).data;
-
-  // Hạt thưa hơn → chữ sắc nét, không nhoè
   const step = isPortrait
     ? Math.max(3, Math.floor(3.2 * DPR))
     : Math.max(3, Math.floor(3.8 * DPR));
@@ -683,7 +681,6 @@ function drawNameDots(){
     const a  = p.alpha;
 
     if (p.isCyan){
-      // Cyan — 2 lớp gọn
       nctx.beginPath();
       nctx.arc(p.x, p.y, p.r * 1.8, 0, Math.PI * 2);
       nctx.fillStyle = 'rgba(0, 255, 200, ' + (a * 0.4) + ')';
@@ -694,7 +691,6 @@ function drawNameDots(){
       nctx.fillStyle = 'rgba(220, 255, 250, ' + a + ')';
       nctx.fill();
     } else {
-      // Trắng — 2 lớp gọn, sắc nét
       nctx.beginPath();
       nctx.arc(p.x, p.y, p.r * 1.5, 0, Math.PI * 2);
       nctx.fillStyle = 'rgba(255, 245, 220, ' + (a * 0.35) + ')';
@@ -707,9 +703,20 @@ function drawNameDots(){
     }
   }
 
+  /* ⚡ QUAN TRỌNG: Sau khi chữ ổn định, gọi showWishes
+     và TRUYỀN callback showHeartPhotos vào                        */
   if (allDone && !nameDone){
     nameDone = true;
-    setTimeout(showWishes, 400);
+    const myGen = gen;
+    setTimeout(() => {
+      showWishes(() => {
+        // Chờ 3s cho user đọc lời chúc rồi mới hiện trái tim
+        setTimeout(() => {
+          if (myGen !== gen) return;
+          showHeartPhotos(myGen);
+        }, 3000);
+      });
+    }, 400);
     setTimeout(() => topBar.classList.add('show'), 1200);
   }
 }
@@ -746,28 +753,27 @@ function showWishes(onComplete){
 ============================================================ */
 function showHeartPhotos(myGen){
   if (myGen !== gen) return;
-  if (!CONFIG.heartPhotos || CONFIG.heartPhotos.length < 3) return;
+  if (!CONFIG.heartPhotos || CONFIG.heartPhotos.length < 3){
+    console.warn('Chưa cấu hình đủ 3 ảnh trái tim');
+    return;
+  }
 
-  // Gán src cho 3 ảnh
   hp1.src = CONFIG.heartPhotos[0];
   hp2.src = CONFIG.heartPhotos[1];
   hp3.src = CONFIG.heartPhotos[2];
 
-  // Fade out chữ hạt + tim bay
+  // Fade out chữ hạt + tim bay + lời chúc
   nameCv.classList.add('hidden');
   heartsCv.classList.add('hidden');
   wishesEl.classList.remove('show');
   wishesEl.classList.add('fadeout');
 
-  // Làm tối nền thêm để trái tim nổi bật
   bgOverlay.classList.add('deepen');
 
-  // Hiện trái tim
   setTimeout(() => {
     if (myGen !== gen) return;
     heartBox.classList.add('show');
 
-    // Sau khi 3 ảnh vào vị trí → bắt đầu nhịp đập + hiện chữ yêu
     setTimeout(() => {
       if (myGen !== gen) return;
       heartBox.classList.add('beat');
@@ -775,7 +781,6 @@ function showHeartPhotos(myGen){
       loveText.textContent = CONFIG.loveText || 'Anh yêu em ❤️';
       loveText.classList.add('show');
 
-      // Tim hồng bay lại xung quanh
       heartsCv.classList.remove('hidden');
       heartsOn = true;
     }, 1800);
@@ -824,8 +829,47 @@ function resize(){
 /* ============================================================
    NHẠC
 ============================================================ */
+/* ============================================================
+   NHẠC — Chạm bất kỳ đâu cũng mở + Nút điều khiển
+============================================================ */
 let musicOn = false;
+let musicUnlocked = false;
 
+/* Hàm bật nhạc — dùng chung cho cả chạm màn hình và nút */
+function tryPlayMusic(){
+  if (!CONFIG.music) return;
+  if (musicUnlocked && musicOn) return;   // đã phát rồi
+
+  bgm.muted = false;
+  bgm.volume = 0.55;
+
+  const p = bgm.paused ? bgm.play() : Promise.resolve();
+
+  p.then(() => {
+    musicOn = true;
+    musicUnlocked = true;
+    updateMusicBtn();
+    btnMusic.classList.remove('pulse');
+
+    // Đã phát được → gỡ hết listener chạm
+    document.removeEventListener('click', onAnyTouch);
+    document.removeEventListener('touchstart', onAnyTouch);
+    document.removeEventListener('touchend', onAnyTouch);
+    document.removeEventListener('scroll', onAnyTouch);
+    document.removeEventListener('keydown', onAnyTouch);
+  }).catch(() => {
+    // Vẫn bị chặn → giữ nguyên, sẽ thử lại lần chạm sau
+  });
+}
+
+/* Handler cho mọi loại tương tác */
+function onAnyTouch(){
+  tryPlayMusic();
+}
+
+/* ============================================================
+   SETUP NHẠC
+============================================================ */
 function setupMusic(){
   if (!CONFIG.music){
     btnMusic.style.display = 'none';
@@ -835,32 +879,34 @@ function setupMusic(){
   bgm.src = CONFIG.music;
   bgm.volume = 0.55;
 
+  // Thử phát ngay (đôi khi được nếu user vào từ FB/Zalo)
   bgm.play().then(() => {
     musicOn = true;
+    musicUnlocked = true;
     updateMusicBtn();
   }).catch(() => {
+    // Bị chặn → phát muted, chờ chạm
     bgm.muted = true;
     bgm.play().then(() => {
       musicOn = true;
       updateMusicBtn();
     }).catch(() => {
+      // Muted cũng bị chặn → hiện nút nhấp nháy
       btnMusic.classList.add('pulse');
-      const unlock = () => {
-        bgm.muted = false;
-        bgm.play().then(() => {
-          musicOn = true;
-          updateMusicBtn();
-          btnMusic.classList.remove('pulse');
-        }).catch(() => {});
-        document.removeEventListener('click', unlock);
-        document.removeEventListener('touchstart', unlock);
-      };
-      document.addEventListener('click', unlock);
-      document.addEventListener('touchstart', unlock);
     });
+
+    // ⚡ Gắn listener lên TOÀN document — chạm bất kỳ đâu là bật
+    document.addEventListener('click',      onAnyTouch);
+    document.addEventListener('touchstart', onAnyTouch, { passive: true });
+    document.addEventListener('touchend',   onAnyTouch, { passive: true });
+    document.addEventListener('scroll',     onAnyTouch, { passive: true });
+    document.addEventListener('keydown',    onAnyTouch);
   });
 }
 
+/* ============================================================
+   GỌI KHI NỔ — thử bật nhạc lần nữa
+============================================================ */
 function forceUnmuteMusic(){
   if (!CONFIG.music) return;
 
@@ -870,6 +916,7 @@ function forceUnmuteMusic(){
   if (bgm.paused){
     bgm.play().then(() => {
       musicOn = true;
+      musicUnlocked = true;
       updateMusicBtn();
       btnMusic.classList.remove('pulse');
     }).catch(() => {
@@ -882,12 +929,19 @@ function forceUnmuteMusic(){
   }
 }
 
+/* ============================================================
+   CẬP NHẬT NÚT
+============================================================ */
 function updateMusicBtn(){
   btnMusic.textContent = (musicOn && !bgm.paused) ? '🔊 Nhạc' : '🔇 Nhạc';
 }
 
+/* ============================================================
+   NÚT NHẠC — bấm vẫn tắt/bật bình thường
+============================================================ */
 btnMusic.addEventListener('click', (e) => {
   e.stopPropagation();
+
   if (musicOn && !bgm.paused){
     bgm.pause();
     musicOn = false;
@@ -895,7 +949,9 @@ btnMusic.addEventListener('click', (e) => {
     bgm.muted = false;
     bgm.play().then(() => {
       musicOn = true;
+      musicUnlocked = true;
       updateMusicBtn();
+      btnMusic.classList.remove('pulse');
     });
   }
   updateMusicBtn();
