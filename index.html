@@ -1,0 +1,1348 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tài xế cá nhân Quảng Xương | Nhận đặt xe theo chuyến | 0946 364 789</title>
+<meta name="description" content="Tài xế cá nhân tại Quảng Xương, Thanh Hóa. Nhận đặt xe theo chuyến, đưa đón sân bay Thọ Xuân, Sầm Sơn, Thanh Hóa và các tuyến lân cận. Liên hệ 0946 364 789 để hỏi lịch xe và giá chuyến.">
+<meta name="keywords" content="tài xế cá nhân quảng xương, đặt xe quảng xương, xe đưa đón quảng xương, xe đi sân bay thọ xuân, xe đi sầm sơn, xe đi thanh hóa">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Tài xế cá nhân Quảng Xương Thanh Hóa">
+<meta property="og:description" content="Tài xế cá nhân nhận đặt xe theo chuyến tại Quảng Xương và khu vực Thanh Hóa. Gọi 0946 364 789.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/limoa.jpg">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+    --yellow:#ffc400;
+    --yellow-dark:#f0a800;
+    --blue:#0b4aa2;
+    --blue-dark:#07306a;
+    --red:#e92828;
+    --ink:#172033;
+    --muted:#5f6b7a;
+    --line:#e7edf5;
+    --soft:#f6f9fd;
+    --white:#ffffff;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--white);
+    color:var(--ink);
+    font-family:Arial, "Segoe UI", sans-serif;
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+.container{
+    width:min(1120px, calc(100% - 32px));
+    margin-inline:auto;
+}
+
+.topbar{
+    background:var(--blue-dark);
+    color:var(--white);
+    font-size:14px;
+}
+
+.topbar .container{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    padding:8px 0;
+}
+
+.topbar span{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    white-space:nowrap;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid rgba(11,74,162,.1);
+    box-shadow:0 8px 28px rgba(7,48,106,.08);
+    backdrop-filter:blur(12px);
+}
+
+.nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    min-height:72px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    text-decoration:none;
+}
+
+.brand-icon{
+    display:grid;
+    place-items:center;
+    width:46px;
+    height:46px;
+    border-radius:8px;
+    background:var(--yellow);
+    color:var(--blue-dark);
+    font-size:24px;
+    box-shadow:0 10px 24px rgba(255,196,0,.35);
+}
+
+.brand strong{
+    display:block;
+    color:var(--blue-dark);
+    font-size:22px;
+    line-height:1.05;
+    text-transform:uppercase;
+}
+
+.brand small{
+    display:block;
+    color:var(--muted);
+    font-size:13px;
+    margin-top:3px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+
+nav a{
+    color:var(--ink);
+    font-size:15px;
+    font-weight:700;
+    text-decoration:none;
+}
+
+nav a:hover{
+    color:var(--blue);
+}
+
+.nav-booking{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    min-height:40px;
+    padding:0 15px;
+    border-radius:8px;
+    background:var(--yellow);
+    color:var(--blue-dark);
+    box-shadow:0 10px 22px rgba(255,196,0,.28);
+}
+
+.nav-booking:hover{
+    color:var(--blue-dark);
+    transform:translateY(-1px);
+}
+
+.nav-call{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    min-height:44px;
+    padding:0 18px;
+    border-radius:8px;
+    background:var(--red);
+    color:var(--white);
+    font-weight:800;
+    text-decoration:none;
+    box-shadow:0 12px 24px rgba(233,40,40,.24);
+    animation:callAttention 1.8s ease-in-out infinite;
+}
+
+.hero{
+    position:relative;
+    min-height:calc(100vh - 104px);
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+        linear-gradient(90deg, rgba(3,24,56,.92) 0%, rgba(6,45,100,.72) 46%, rgba(6,45,100,.18) 100%),
+        url("images/limoa.jpg") center/cover no-repeat;
+    color:var(--white);
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:auto 0 0;
+    height:12px;
+    background:linear-gradient(90deg, var(--yellow), var(--blue));
+}
+
+.hero-content{
+    position:relative;
+    z-index:1;
+    width:min(650px, 100%);
+    padding:72px 0 88px;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    margin-bottom:18px;
+    padding:8px 12px;
+    border:1px solid rgba(255,255,255,.28);
+    border-radius:8px;
+    background:rgba(255,255,255,.12);
+    color:#fff7ce;
+    font-size:14px;
+    font-weight:700;
+}
+
+h1{
+    max-width:680px;
+    font-size:clamp(38px, 6vw, 72px);
+    line-height:1.02;
+    letter-spacing:0;
+    text-transform:uppercase;
+}
+
+.hero p{
+    max-width:610px;
+    margin-top:18px;
+    color:#eef5ff;
+    font-size:clamp(17px, 2vw, 22px);
+}
+
+.hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    min-height:52px;
+    padding:0 24px;
+    border-radius:8px;
+    border:2px solid transparent;
+    font-weight:800;
+    text-decoration:none;
+}
+
+.btn-primary{
+    background:var(--yellow);
+    color:var(--blue-dark);
+    box-shadow:0 16px 28px rgba(255,196,0,.32);
+}
+
+.call-cta{
+    animation:callAttention 1.8s ease-in-out infinite;
+}
+
+.btn-booking{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg, var(--yellow), #ffdf5a);
+    color:var(--blue-dark);
+    box-shadow:0 18px 34px rgba(255,196,0,.36);
+    animation:bookingGlow 1.8s ease-in-out infinite;
+}
+
+.btn-booking::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    transform:translateX(-110%);
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,.62), transparent);
+    animation:shine 2.8s ease-in-out infinite;
+}
+
+.btn-booking i,
+.btn-booking span{
+    position:relative;
+    z-index:1;
+}
+
+.btn-outline{
+    border-color:rgba(255,255,255,.45);
+    color:var(--white);
+    background:rgba(255,255,255,.08);
+}
+
+.quick-info{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+    margin-top:36px;
+}
+
+.quick-info div{
+    min-height:92px;
+    padding:18px;
+    border-radius:8px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+}
+
+.quick-info strong{
+    display:block;
+    color:var(--yellow);
+    font-size:22px;
+}
+
+.quick-info span{
+    display:block;
+    margin-top:3px;
+    color:#f2f7ff;
+    font-size:14px;
+}
+
+section{
+    padding:76px 0;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:28px;
+    margin-bottom:32px;
+}
+
+.section-kicker{
+    color:var(--blue);
+    font-size:14px;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+h2{
+    margin-top:6px;
+    color:var(--blue-dark);
+    font-size:clamp(28px, 4vw, 42px);
+    line-height:1.15;
+}
+
+.section-head p{
+    max-width:420px;
+    color:var(--muted);
+}
+
+.services{
+    background:var(--soft);
+}
+
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+    gap:18px;
+}
+
+.service{
+    min-height:238px;
+    padding:24px;
+    border-radius:8px;
+    background:var(--white);
+    border:1px solid var(--line);
+    box-shadow:0 16px 34px rgba(23,32,51,.06);
+}
+
+.service i{
+    display:grid;
+    place-items:center;
+    width:50px;
+    height:50px;
+    border-radius:8px;
+    margin-bottom:18px;
+    background:#fff5c7;
+    color:var(--blue);
+    font-size:22px;
+}
+
+.service h3{
+    color:var(--blue-dark);
+    font-size:20px;
+    line-height:1.25;
+}
+
+.service p{
+    margin-top:10px;
+    color:var(--muted);
+}
+
+.routes-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    align-items:start;
+}
+
+.route-list{
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+}
+
+.route-row{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:16px;
+    padding:18px 20px;
+    border-bottom:1px solid var(--line);
+}
+
+.route-row:last-child{
+    border-bottom:0;
+}
+
+.route-row strong{
+    color:var(--blue-dark);
+}
+
+.route-row span{
+    color:var(--muted);
+}
+
+.price-note{
+    padding:26px;
+    border-radius:8px;
+    background:linear-gradient(135deg, var(--blue-dark), var(--blue));
+    color:var(--white);
+}
+
+.price-note h3{
+    font-size:26px;
+    line-height:1.2;
+}
+
+.price-note p{
+    margin-top:12px;
+    color:#eef5ff;
+}
+
+.price-note .hotline-number{
+    display:block;
+    margin-top:22px;
+    color:var(--yellow);
+    font-size:34px;
+    font-weight:900;
+    line-height:1;
+    text-decoration:none;
+}
+
+.fleet{
+    background:var(--soft);
+}
+
+.fleet-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:18px;
+}
+
+.car-photo{
+    position:relative;
+    min-height:240px;
+    overflow:hidden;
+    border-radius:8px;
+    background:#dfe7f1;
+}
+
+.car-photo img{
+    width:100%;
+    height:100%;
+    min-height:240px;
+    object-fit:cover;
+    transition:transform .45s ease;
+}
+
+.car-photo:hover img{
+    transform:scale(1.06);
+}
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:18px;
+}
+
+.why{
+    padding:24px;
+    border-left:5px solid var(--yellow);
+    background:var(--white);
+    box-shadow:0 16px 34px rgba(23,32,51,.07);
+}
+
+.why strong{
+    color:var(--blue-dark);
+    font-size:20px;
+}
+
+.why p{
+    margin-top:8px;
+    color:var(--muted);
+}
+
+.booking{
+    background:var(--soft);
+}
+
+.booking-grid{
+    display:grid;
+    grid-template-columns:.95fr 1.05fr;
+    gap:28px;
+    align-items:start;
+}
+
+.booking-copy{
+    padding:30px;
+    border-radius:8px;
+    background:linear-gradient(135deg, var(--blue-dark), var(--blue));
+    color:var(--white);
+}
+
+.booking-copy h2{
+    color:var(--white);
+}
+
+.booking-copy p{
+    margin-top:14px;
+    color:#e6f0ff;
+}
+
+.booking-copy a{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:22px;
+    color:var(--yellow);
+    font-size:28px;
+    font-weight:900;
+    text-decoration:none;
+}
+
+.booking-form{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:28px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:var(--white);
+    box-shadow:0 22px 44px rgba(23,32,51,.12);
+}
+
+.field{
+    display:grid;
+    gap:7px;
+}
+
+.field-full{
+    grid-column:1 / -1;
+}
+
+.field label{
+    color:var(--blue-dark);
+    font-size:14px;
+    font-weight:800;
+}
+
+.field input,
+.field select,
+.field textarea{
+    width:100%;
+    min-height:46px;
+    border:1px solid #d8e1ee;
+    border-radius:8px;
+    padding:11px 12px;
+    color:var(--ink);
+    font:inherit;
+    background:#fff;
+}
+
+.input-action{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:8px;
+}
+
+.input-action button{
+    min-height:46px;
+    padding:0 13px;
+    border:0;
+    border-radius:8px;
+    background:var(--blue);
+    color:var(--white);
+    font:inherit;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.location-status{
+    min-height:20px;
+    color:var(--muted);
+    font-size:13px;
+}
+
+.field textarea{
+    min-height:104px;
+    resize:vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+    outline:2px solid rgba(11,74,162,.18);
+    border-color:var(--blue);
+}
+
+.booking-form button{
+    min-height:52px;
+    border:0;
+    border-radius:8px;
+    background:var(--red);
+    color:var(--white);
+    font:inherit;
+    font-weight:900;
+    cursor:pointer;
+    box-shadow:0 12px 24px rgba(233,40,40,.22);
+}
+
+.booking-actions{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+}
+
+.booking-form .zalo-submit{
+    background:#0068ff;
+    min-height:58px;
+    font-size:18px;
+    box-shadow:0 14px 28px rgba(0,104,255,.28);
+}
+
+.booking-form .email-submit{
+    min-height:46px;
+    background:var(--red);
+    font-size:15px;
+    opacity:.92;
+}
+
+.booking-hint{
+    color:var(--muted);
+    font-size:13px;
+    text-align:center;
+}
+
+.contact{
+    padding:0;
+    background:var(--blue-dark);
+    color:var(--white);
+}
+
+.contact-inner{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:30px;
+    align-items:center;
+    padding:64px 0;
+}
+
+.contact h2{
+    color:var(--white);
+}
+
+.contact p{
+    margin-top:12px;
+    color:#e6f0ff;
+}
+
+.contact-panel{
+    padding:28px;
+    border-radius:8px;
+    background:var(--white);
+    color:var(--ink);
+}
+
+.contact-item{
+    display:flex;
+    gap:14px;
+    padding:15px 0;
+    border-bottom:1px solid var(--line);
+}
+
+.contact-item:last-child{
+    border-bottom:0;
+}
+
+.contact-item i{
+    color:var(--blue);
+    font-size:22px;
+    margin-top:3px;
+}
+
+.contact-item strong{
+    display:block;
+    color:var(--blue-dark);
+}
+
+.contact-item a,
+.contact-item span{
+    color:var(--muted);
+    text-decoration:none;
+}
+
+footer{
+    padding:30px 0;
+    background:#071426;
+    color:#cbd7e8;
+    text-align:center;
+}
+
+.floating-bar{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:1200;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.floating-bar a{
+    display:grid;
+    place-items:center;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    color:var(--white);
+    text-decoration:none;
+    box-shadow:0 14px 28px rgba(0,0,0,.22);
+}
+
+.floating-bar .phone{
+    background:var(--red);
+    font-size:24px;
+    animation:pulse 1.5s ease-in-out infinite;
+}
+
+.floating-bar .zalo{
+    background:var(--white);
+}
+
+.floating-bar .zalo img{
+    width:38px;
+    height:38px;
+}
+
+.floating-bar .facebook{
+    background:#1877f2;
+    font-size:24px;
+}
+
+.floating-bar .book-now{
+    width:auto;
+    min-width:132px;
+    height:54px;
+    padding:0 16px;
+    border-radius:999px;
+    background:var(--yellow);
+    color:var(--blue-dark);
+    font-size:15px;
+    font-weight:900;
+    gap:8px;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.08)}
+}
+
+@keyframes callAttention{
+    0%,100%{
+        transform:scale(1);
+        box-shadow:0 12px 24px rgba(233,40,40,.22);
+    }
+    50%{
+        transform:scale(1.04);
+        box-shadow:0 16px 34px rgba(233,40,40,.42);
+    }
+}
+
+@keyframes bookingGlow{
+    0%,100%{transform:translateY(0); box-shadow:0 18px 34px rgba(255,196,0,.34)}
+    50%{transform:translateY(-2px); box-shadow:0 22px 42px rgba(255,196,0,.52)}
+}
+
+@keyframes shine{
+    0%,45%{transform:translateX(-110%)}
+    80%,100%{transform:translateX(110%)}
+}
+
+@media (max-width: 920px){
+    .topbar .container{
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .hero{
+        min-height:auto;
+        background:
+            linear-gradient(180deg, rgba(3,24,56,.86), rgba(6,45,100,.58)),
+            url("images/limoa.jpg") center/cover no-repeat;
+    }
+
+    .hero-content{
+        padding:64px 0 78px;
+    }
+
+    .quick-info,
+    .service-grid,
+    .fleet-grid,
+    .why-grid,
+    .booking-grid,
+    .routes-wrap,
+    .contact-inner{
+        grid-template-columns:1fr;
+    }
+
+    .section-head{
+        display:block;
+    }
+
+    .section-head p{
+        margin-top:10px;
+    }
+}
+
+@media (max-width: 560px){
+    .topbar{
+        display:none;
+    }
+
+    .nav{
+        min-height:66px;
+    }
+
+    .brand-icon{
+        width:42px;
+        height:42px;
+    }
+
+    .brand strong{
+        font-size:18px;
+    }
+
+    .nav-call{
+        min-height:40px;
+        padding:0 12px;
+        font-size:14px;
+    }
+
+    .hero-actions{
+        display:grid;
+    }
+
+    .booking-form{
+        grid-template-columns:1fr;
+        padding:20px;
+    }
+
+    .booking-actions{
+        grid-template-columns:1fr;
+    }
+
+    .input-action{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:58px 0;
+    }
+
+    .route-row{
+        grid-template-columns:1fr;
+        gap:6px;
+    }
+
+    .floating-bar{
+        right:12px;
+        bottom:12px;
+    }
+
+    .floating-bar a{
+        width:52px;
+        height:52px;
+    }
+}
+</style>
+<script type="application/ld+json">
+{
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Tài xế cá nhân Quảng Xương",
+    "telephone":"+84946364789",
+    "areaServed":["Quảng Xương","Thanh Hóa","Sầm Sơn"],
+    "url":"https://taxiquangxuong.io.vn/"
+}
+</script>
+</head>
+<body>
+<div class="topbar">
+    <div class="container">
+        <span><i class="fa-solid fa-location-dot"></i> Quảng Xương - Thanh Hóa - Sầm Sơn</span>
+        <span><i class="fa-solid fa-clock"></i> Nhận chuyến theo lịch hẹn</span>
+        <span><i class="fa-solid fa-phone"></i> Hotline: 0946.364.789</span>
+    </div>
+</div>
+
+<header>
+    <div class="container nav">
+        <a class="brand" href="#top" aria-label="Tài xế cá nhân Quảng Xương">
+            <span class="brand-icon"><i class="fa-solid fa-car"></i></span>
+            <span>
+                <strong>Tài xế cá nhân Quảng Xương</strong>
+                <small>Nhận đặt xe theo chuyến</small>
+            </span>
+        </a>
+
+        <nav aria-label="Điều hướng chính">
+            <a href="#services">Dịch vụ</a>
+            <a href="#routes">Tuyến phổ biến</a>
+            <a href="#fleet">Xe của tôi</a>
+            <a class="nav-booking" href="#booking"><i class="fa-solid fa-calendar-check"></i> Đặt xe</a>
+            <a href="#contact">Liên hệ</a>
+        </nav>
+
+        <a class="nav-call" href="tel:0946364789"><i class="fa-solid fa-phone"></i> Gọi ngay</a>
+    </div>
+</header>
+
+<main id="top">
+    <section class="hero" aria-label="Đặt Tài xế cá nhân Quảng Xương">
+        <div class="container">
+            <div class="hero-content">
+                <div class="eyebrow"><i class="fa-solid fa-car-side"></i> Xe cá nhân sạch sẽ, báo giá trước chuyến</div>
+                <h1>Tài xế cá nhân Quảng Xương</h1>
+                <p>Tôi là tài xế cá nhân tại Quảng Xương, Thanh Hóa. Nhận đưa đón theo chuyến, sân bay Thọ Xuân, Sầm Sơn và các tuyến lân cận theo lịch hẹn.</p>
+
+                <div class="hero-actions">
+                    <a class="btn btn-primary call-cta" href="tel:0946.364.789"><i class="fa-solid fa-phone-volume"></i> 0946.364.789</a>
+                    <a class="btn btn-booking" href="#booking"><i class="fa-solid fa-calendar-check"></i> <span>Đặt xe ngay</span></a>
+                </div>
+
+                <div class="quick-info" aria-label="Thông tin nhanh">
+                    <div>
+                        <strong>Đặt trước</strong>
+                        <span>Nhận chuyến theo lịch hẹn</span>
+                    </div>
+                    <div>
+                        <strong>Xe cá nhân</strong>
+                        <span>Vui lòng hỏi để xác nhận loại xe</span>
+                    </div>
+                    <div>
+                        <strong>36H</strong>
+                        <span>Khu vực Thanh Hóa</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="about-driver">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-kicker">Thông tin người cung cấp dịch vụ</div>
+                    <h2>Tài xế cá nhân, nhận chuyến trực tiếp</h2>
+                </div>
+                <p>Website này giới thiệu thông tin liên hệ của một tài xế trực tiếp lái xe và nhận yêu cầu chuyến đi. Khách vui lòng liên hệ để xác nhận lịch xe, điểm đón, điểm đến và giá chuyến.</p>
+            </div>
+            <div class="why-grid">
+                <div class="why">
+                    <strong>Tôi là tài xế cá nhân</strong>
+                    <p>Tôi trực tiếp lái xe và nhận yêu cầu đặt chuyến qua điện thoại hoặc Zalo.</p>
+                </div>
+                <div class="why">
+                    <strong>Thông tin rõ ràng</strong>
+                    <p>Khách có thể liên hệ trực tiếp với tôi để xác nhận lịch xe, điểm đón, điểm đến và giá chuyến trước khi đi.</p>
+                </div>
+                <div class="why">
+                    <strong>Không đại diện thương hiệu khác</strong>
+                    <p>Tôi trực tiếp cung cấp thông tin và trao đổi với khách về chuyến xe; không sử dụng tên hoặc logo của thương hiệu khác để nhận mình là đại diện.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-kicker">Dịch vụ</div>
+                    <h2>Nhận yêu cầu chuyến đi</h2>
+                </div>
+                <p>Tôi nhận chở khách theo chuyến với xe cá nhân, phục vụ cá nhân, gia đình, khách công tác và du lịch. Lịch xe cần được xác nhận trước.</p>
+            </div>
+
+            <div class="service-grid">
+                <article class="service">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    <h3>Đưa đón sân bay theo lịch hẹn</h3>
+                    <p>Xe đi sân bay Thọ Xuân, Nội Bài và các tuyến đường dài theo lịch hẹn.</p>
+                </article>
+                <article class="service">
+                    <i class="fa-solid fa-umbrella-beach"></i>
+                    <h3>Du lịch Sầm Sơn</h3>
+                    <p>Đón trả khách tại khách sạn, bãi biển, nhà hàng và điểm tham quan.</p>
+                </article>
+                <article class="service">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                    <h3>Nội tỉnh Thanh Hóa</h3>
+                    <p>Quảng Xương, thành phố Thanh Hóa, Hoằng Hóa, Nghi Sơn và các huyện lân cận.</p>
+                </article>
+                <article class="service">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <h3>Đặt xe theo giờ</h3>
+                    <p>Nhận đặt trước cho lịch trình cá nhân, gia đình và công việc; vui lòng liên hệ để xác nhận lịch xe.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="routes">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-kicker">Tuyến phổ biến</div>
+                    <h2>Gọi là có xe, báo giá rõ trước khi đi</h2>
+                </div>
+                <p>Giá thực tế tùy điểm đón, điểm trả và thời gian di chuyển. Gọi trực tiếp để được báo giá nhanh nhất.</p>
+            </div>
+
+            <div class="routes-wrap">
+                <div class="route-list">
+                    <div class="route-row">
+                        <strong>TP Thanh Hóa - Sân bay Thọ Xuân</strong>
+                        <span>Đặt trước theo lịch hẹn</span>
+                    </div>
+                    <div class="route-row">
+                        <strong>Quảng Xương - Sầm Sơn</strong>
+                        <span>Đón tận nơi</span>
+                    </div>
+                    <div class="route-row">
+                        <strong>Thanh Hóa - Hà Nội</strong>
+                        <span>Xe cá nhân theo chuyến</span>
+                    </div>
+                    <div class="route-row">
+                        <strong>Nội thành Thanh Hóa</strong>
+                        <span>Đi nhanh trong ngày</span>
+                    </div>
+                </div>
+
+                <div class="price-note">
+                    <h3>Cần xe gấp?</h3>
+                    <p>Liên hệ hotline hoặc Zalo để được xác nhận xe gần nhất. Tài xế gọi lại nhanh, hỗ trợ hành lý và đón đúng điểm hẹn.</p>
+                    <a class="hotline-number" href="tel:0946364789">0946.364.789</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fleet" class="fleet">
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-kicker">Xe của tôi</div>
+                    <h2>Xe cá nhân sạch sẽ, phù hợp chuyến đi</h2>
+                </div>
+                <p>Xe cá nhân của tôi có điều hòa, phù hợp cho các chuyến trong khu vực, đi sân bay và các tuyến tỉnh. Vui lòng hỏi trước để xác nhận loại xe và số chỗ.</p>
+            </div>
+
+            <div class="fleet-grid">
+                <figure class="car-photo"><img src="images/limoa.jpg" alt="Xe Tài xế cá nhân Quảng Xương"></figure>
+                <figure class="car-photo"><img src="images/limob.jpg" alt="Xe cá nhân phục vụ khách tại Thanh Hóa"></figure>
+                <figure class="car-photo"><img src="images/limoc.jpg" alt="Xe của tôi Tài xế cá nhân Quảng Xương"></figure>
+                <figure class="car-photo"><img src="images/limod.jpg" alt="Tài xế cá nhân Quảng Xương"></figure>
+                <figure class="car-photo"><img src="images/vf6a.png" alt="Xe cá nhân phục vụ theo lịch hẹn"></figure>
+                <figure class="car-photo"><img src="images/vf7a.jpg" alt="Xe cá nhân nhận đặt chuyến Thanh Hóa"></figure>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="section-head">
+                <div>
+                    <div class="section-kicker">Cam kết</div>
+                    <h2>Đi xe yên tâm hơn</h2>
+                </div>
+            </div>
+
+            <div class="why-grid">
+                <div class="why">
+                    <strong>Đúng giờ</strong>
+                    <p>Nhận lịch hẹn trước, chủ động gọi xác nhận điểm đón và thời gian.</p>
+                </div>
+                <div class="why">
+                    <strong>Giá minh bạch</strong>
+                    <p>Báo giá rõ ràng qua điện thoại hoặc Zalo trước khi khách lên xe.</p>
+                </div>
+                <div class="why">
+                    <strong>Tài xế thân thiện</strong>
+                    <p>Hỗ trợ hành lý, tư vấn tuyến đường và phục vụ lịch sự.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="booking">
+        <div class="container booking-grid">
+            <div class="booking-copy">
+                <div class="section-kicker">Đặt xe qua email</div>
+                <h2>Gửi thông tin chuyến đi</h2>
+                <p>Nhập số điện thoại, điểm đón, điểm đến và thời gian cần xe. Bấm Zalo để copy toàn bộ nội dung, gồm cả link vị trí, rồi gửi ngay cho tài xế.</p>
+                <a href="tel:0946364789"><i class="fa-solid fa-phone-volume"></i> 0946.364.789</a>
+            </div>
+
+            <form class="booking-form" id="bookingForm">
+                <div class="field">
+                    <label for="customerPhone">Số điện thoại</label>
+                    <input id="customerPhone" name="customerPhone" type="tel" autocomplete="tel" required>
+                </div>
+                <div class="field">
+                    <label for="pickup">Điểm đón</label>
+                    <div class="input-action">
+                        <input id="pickup" name="pickup" type="text" required>
+                        <button type="button" id="getLocationBtn"><i class="fa-solid fa-location-crosshairs"></i> Vị trí</button>
+                    </div>
+                    <span class="location-status" id="locationStatus"></span>
+                </div>
+                <div class="field">
+                    <label for="dropoff">Điểm đến</label>
+                    <input id="dropoff" name="dropoff" type="text" required>
+                </div>
+                <div class="field">
+                    <label for="pickupTime">Thời gian đón</label>
+                    <input id="pickupTime" name="pickupTime" type="datetime-local" required>
+                </div>
+                <div class="field field-full">
+                    <label for="note">Ghi chú</label>
+                    <textarea id="note" name="note" placeholder="Ví dụ: số người, hành lý, chuyến bay, loại xe cần đặt..."></textarea>
+                </div>
+                <div class="booking-actions field-full">
+                    <button class="zalo-submit" type="button" id="sendZaloBtn"><i class="fa-solid fa-comment-dots"></i> Đặt xe qua Zalo</button>
+                    <button class="email-submit" type="submit"><i class="fa-solid fa-envelope"></i> Gửi qua Email</button>
+                </div>
+                <p class="booking-hint field-full">Bấm Zalo sẽ copy toàn bộ nội dung đặt xe và mở chat với tài xế.</p>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container contact-inner">
+            <div>
+                <div class="section-kicker">Liên hệ</div>
+                <h2>Đặt Tài xế cá nhân Quảng Xương ngay</h2>
+                <p>Gọi điện là cách nhanh nhất để có xe. Bạn cũng có thể nhắn Zalo số 0946.364.789 để gửi vị trí đón và lịch trình.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary call-cta" href="tel:0946364789"><i class="fa-solid fa-phone"></i> Gọi đặt xe</a>
+                    <a class="btn btn-outline" href="https://zalo.me/0946364789" target="_blank" rel="noopener"><i class="fa-solid fa-comment"></i> Nhắn Zalo</a>
+                </div>
+            </div>
+
+            <div class="contact-panel">
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <div>
+                        <strong>Hotline</strong>
+                        <a href="tel:0946364789">0946364789</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-comment-dots"></i>
+                    <div>
+                        <strong>Zalo</strong>
+                        <a href="https://zalo.me/0946364789" target="_blank" rel="noopener">0946.364.789</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <div>
+                        <strong>Facebook</strong>
+                        <a href="https://www.facebook.com/share/1D1U25yVmU/?mibextid=wwXIfr" target="_blank" rel="noopener">Tài xế cá nhân Quảng Xương</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <strong>Khu vực phục vụ</strong>
+                        <span>Thanh Hóa, Quảng Xương, Sầm Sơn và các tuyến lân cận</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Tài xế cá nhân Quảng Xương - Liên hệ: 0946.364.789</p>
+    </div>
+</footer>
+
+<div class="floating-bar" aria-label="Liên hệ nhanh">
+    <a class="book-now" href="#booking" aria-label="Đặt xe Tài xế cá nhân Quảng Xương">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>Đặt xe</span>
+    </a>
+    <a class="phone" href="tel:0946364789" aria-label="Tài xế cá nhân Quảng Xương">
+        <i class="fa-solid fa-phone"></i>
+    </a>
+    <a class="zalo" href="https://zalo.me/0946364789" target="_blank" rel="noopener" aria-label="Nhắn Zalo Tài xế cá nhân Quảng Xương">
+        <img src="images/zalo.png" alt="Zalo">
+    </a>
+    <a class="facebook" href="https://www.facebook.com/share/1D1U25yVmU/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook Tài xế cá nhân Quảng Xương">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+</div>
+<script>
+const BOOKING_EMAIL = "mcstudio36@gmail.com";
+const ZALO_PHONE = "0946364789";
+const locationButton = document.getElementById("getLocationBtn");
+const locationStatus = document.getElementById("locationStatus");
+const pickupInput = document.getElementById("pickup");
+const bookingForm = document.getElementById("bookingForm");
+const zaloButton = document.getElementById("sendZaloBtn");
+
+locationButton.addEventListener("click", function(){
+    if (!navigator.geolocation) {
+        locationStatus.textContent = "Trình duyệt không hỗ trợ lấy vị trí.";
+        return;
+    }
+
+    locationStatus.textContent = "Đang lấy vị trí, vui lòng cho phép trên trình duyệt...";
+    locationButton.disabled = true;
+
+    navigator.geolocation.getCurrentPosition(function(position){
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        const accuracy = Math.round(position.coords.accuracy);
+        const mapLink = "https://www.google.com/maps?q=" + lat + "," + lng;
+
+        pickupInput.value = mapLink;
+        locationStatus.textContent = "Đã lấy vị trí hiện tại, sai số khoảng " + accuracy + "m.";
+        locationButton.disabled = false;
+    }, function(error){
+        const messages = {
+            1: "Bạn chưa cho phép chia sẻ vị trí.",
+            2: "Không xác định được vị trí hiện tại.",
+            3: "Lấy vị trí quá lâu, vui lòng thử lại."
+        };
+
+        locationStatus.textContent = messages[error.code] || "Không lấy được vị trí, vui lòng nhập điểm đón.";
+        locationButton.disabled = false;
+    }, {
+        enableHighAccuracy: true,
+        timeout: 12000,
+        maximumAge: 0
+    });
+});
+
+function getBookingMessage(form){
+    const data = new FormData(form);
+    return [
+        "Thông tin yêu cầu chuyến đi:",
+        "",
+        "Số điện thoại: " + data.get("customerPhone"),
+        "Điểm đón: " + data.get("pickup"),
+        "Điểm đến: " + data.get("dropoff"),
+        "Thời gian đón: " + data.get("pickupTime"),
+        "Ghi chú: " + (data.get("note") || "Không có")
+    ].join("\n");
+}
+
+async function copyBookingMessage(message){
+    try {
+        if (navigator.clipboard) {
+            await navigator.clipboard.writeText(message);
+            return true;
+        }
+    } catch (error) {
+        // Use the fallback below.
+    }
+
+    const textarea = document.createElement("textarea");
+    textarea.value = message;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.left = "-9999px";
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    const copied = document.execCommand("copy");
+    document.body.removeChild(textarea);
+    return copied;
+}
+
+zaloButton.addEventListener("click", async function(){
+    if (!bookingForm.reportValidity()) {
+        return;
+    }
+
+    const message = getBookingMessage(bookingForm);
+    const copied = await copyBookingMessage(message);
+
+    if (copied) {
+        alert("Đã copy toàn bộ thông tin đặt xe, gồm cả vị trí nếu đã lấy. Zalo sẽ mở ra, bạn chỉ cần dán và gửi cho tài xế.");
+    } else {
+        alert("Zalo sẽ mở ra. Nếu chưa dán được tự động, vui lòng copy thông tin trong form để gửi cho tài xế.");
+    }
+
+    window.open("https://zalo.me/" + ZALO_PHONE, "_blank", "noopener");
+});
+
+bookingForm.addEventListener("submit", function(event){
+    event.preventDefault();
+
+    const subject = "Đơn đặt xe Tài xế cá nhân Quảng Xương";
+    const body = getBookingMessage(event.currentTarget);
+
+    window.location.href = "mailto:" + BOOKING_EMAIL
+        + "?subject=" + encodeURIComponent(subject)
+        + "&body=" + encodeURIComponent(body);
+});
+</script>
+</body>
+</html>
