@@ -182,11 +182,13 @@
   }
 
   /* ===== LỜI CHÚC ===== */
-  #wishes{
+#wishes{
     position:fixed;
-    bottom:max(20%, env(safe-area-inset-bottom));
+    top:45%;                                          /* ← NEO Ở ĐỈNH */
     left:50%;
     transform:translateX(-50%);
+    ...
+    /* xoá dòng bottom cũ nếu có */
     z-index:10;
     width:min(94%, 600px);
     text-align:center;
@@ -272,18 +274,19 @@
 const CONFIG = {
   name: 'Em iu',
   photo: 'IMG_5537.jpeg',
-  music: 'chua mot lan a thay hoi han.mp3',
+  music: '',
   countFrom: 3,
 
   wishes: [
     'Em iu à, sinh nhật em mà anh lại chẳng thể ở bên.',
-    'Anh xin lỗi nhé. ❤️',
+    'Anh xin lỗi nhé ❤️',
     'Dù mình đang xa nhau, nhưng tình cảm anh dành cho em',
     'chưa bao giờ là xa cả.',
     'Anh chỉ mong em luôn vui, luôn bình an',
     'và biết rằng ở đâu đó vẫn có một người',
     'rất thương em và luôn nhớ về em.',
-    'Chúc em sinh nhật thật hạnh phúc. Anh yêu em.'
+    'Chúc em sinh nhật thật hạnh phúc',
+	' ❤️❤️❤️ Anh yêu em ❤️❤️❤️'
   ]
 };
 /* ============================================================ */
@@ -674,7 +677,11 @@ function resize(){
 /* ============================================================
    NHẠC
 ============================================================ */
+/* ============================================================
+   NHẠC — Bắt buộc phát khi countdown xong
+============================================================ */
 let musicOn = false;
+let musicUnlocked = false;
 
 function setupMusic(){
   if (!CONFIG.music){
@@ -685,36 +692,76 @@ function setupMusic(){
   bgm.src = CONFIG.music;
   bgm.volume = 0.55;
 
+  // Bước 1: thử phát bình thường
   bgm.play().then(() => {
     musicOn = true;
+    musicUnlocked = true;
     updateMusicBtn();
   }).catch(() => {
-    btnMusic.classList.add('pulse');
-    const unlock = () => {
-      bgm.play().then(() => {
-        musicOn = true;
-        updateMusicBtn();
-        btnMusic.classList.remove('pulse');
-      }).catch(()=>{});
-      document.removeEventListener('click', unlock);
-      document.removeEventListener('touchstart', unlock);
-    };
-    document.addEventListener('click', unlock);
-    document.addEventListener('touchstart', unlock);
+    // Bước 2: bị chặn → phát MUTED (autoplay muted luôn được phép)
+    bgm.muted = true;
+    bgm.play().then(() => {
+      musicOn = true;
+      musicUnlocked = true;
+      updateMusicBtn();
+      // Nhạc đang chạy nền nhưng tắt tiếng, chờ countdown xong sẽ unmute
+    }).catch(() => {
+      // Bước 3: vẫn bị chặn → chờ tương tác đầu tiên
+      btnMusic.classList.add('pulse');
+      const unlock = () => {
+        bgm.muted = false;
+        bgm.play().then(() => {
+          musicOn = true;
+          musicUnlocked = true;
+          updateMusicBtn();
+          btnMusic.classList.remove('pulse');
+        }).catch(()=>{});
+        document.removeEventListener('click', unlock);
+        document.removeEventListener('touchstart', unlock);
+      };
+      document.addEventListener('click', unlock);
+      document.addEventListener('touchstart', unlock);
+    });
   });
 }
 
+/* Gọi hàm này ngay khi vụ nổ kết thúc */
+function forceUnmuteMusic(){
+  if (!CONFIG.music) return;
+
+  bgm.muted = false;
+  bgm.volume = 0.55;
+
+  if (bgm.paused){
+    bgm.play().then(() => {
+      musicOn = true;
+      updateMusicBtn();
+      btnMusic.classList.remove('pulse');
+    }).catch(() => {
+      btnMusic.classList.add('pulse');
+    });
+  } else {
+    musicOn = true;
+    updateMusicBtn();
+    btnMusic.classList.remove('pulse');
+  }
+}
+
 function updateMusicBtn(){
-  btnMusic.textContent = musicOn ? '🔊 Nhạc' : '🔇 Nhạc';
+  btnMusic.textContent = musicOn && !bgm.paused ? '🔊 Nhạc' : '🔇 Nhạc';
 }
 
 btnMusic.addEventListener('click', (e) => {
   e.stopPropagation();
-  if (musicOn){
+  if (musicOn && !bgm.paused){
     bgm.pause();
     musicOn = false;
   } else {
-    bgm.play().then(() => { musicOn = true; updateMusicBtn(); });
+    bgm.muted = false;
+    bgm.play().then(() => {
+      musicOn = true;
+      updateMusicBtn();
+    });
   }
   updateMusicBtn();
 });
@@ -725,16 +772,14 @@ btnMusic.addEventListener('click', (e) => {
 function startMain(){
   const myGen = ++gen;
 
-  // Nền đen thuần khi đếm — ảnh chưa hiện
+  revealBackground(myGen);
+
   heartsOn = true;
   for (let i = 0; i < 8; i++){
     setTimeout(() => { if (myGen === gen) spawnHeart(); }, i * 200);
   }
 
   startCountdown(myGen, () => {
-    // Sau khi nổ xong → mới hiện ảnh nền
-    if (myGen !== gen) return;
-    revealBackground(myGen);
     buildNameDots();
   });
 }
